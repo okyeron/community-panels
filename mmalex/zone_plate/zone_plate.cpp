@@ -1,7 +1,7 @@
 /*
 @Name: Zone Plate
-@Author: Alex Evans
-@Documentation: https://github.com/plinkysynth/community-panels/tree/main/zone_plate
+@Author: mmalex
+@Documentation: https://github.com/plinkysynth/community-panels/tree/main/mmalex/zone_plate
 @Category: Visuals
 @Tags: leds, animation, rgb
 @_artwork_multiply: true

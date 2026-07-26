@@ -14,26 +14,30 @@ For more information about Plinky 12, go to https://plinky12.com
 
 ## Panel Layout
 
-Use one directory per panel:
+Use one author directory, then one directory per panel:
 
 ```text
-my_panel/
-  my_panel.cpp
-  README.md        # optional, but recommended
-  artwork.png      # optional; artwork.webp is also accepted
+author_slug/
+  my_panel/
+    my_panel.cpp
+    README.md        # optional, but recommended
+    artwork.png      # optional; artwork.webp is also accepted
 ```
 
-Each panel directory must contain exactly one `.cpp` file directly inside the
-directory. Do not put panel `.cpp` files at the repository root, and do not use
-subdirectories inside a panel submission.
+Each author directory can contain one or more panel directories. Each panel
+directory must contain exactly one `.cpp` file directly inside the directory.
+Do not put panel `.cpp` files at the repository root or directly inside an
+author directory, and do not use subdirectories inside a panel submission.
 
 Inside each panel directory, the only other accepted files are:
 
 - `README.md`: optional panel-specific notes.
 - `artwork.png` or `artwork.webp`: optional square thumbnail artwork.
 
-The panel key comes from the directory name. It must be 1-48 characters and
-contain only letters, numbers, `.`, `_`, or `-`.
+The community panel ID comes from the author and panel directory names:
+`author_slug/panel_slug`. Directory slugs must be lowercase and contain only
+letters, numbers, and underscores. Use the `@Name` metadata for display names
+with spaces and punctuation.
 
 The optional panel `README.md` is shown in the Plinky web IDE panel cover after
 someone opens the panel from the library. The public library listing uses the
@@ -41,13 +45,13 @@ C++ metadata and artwork, not the README.
 
 ## Permalinks
 
-Use your panel key in the Plinky web IDE community library URL:
+Use your community panel ID in the Plinky web IDE community library URL:
 
 ```text
-https://plinky12.com/ide.html?library=community&panel=my_panel
+https://plinky12.com/ide.html?library=community&panel=author_slug/panel_slug
 ```
 
-The panel key is the panel directory name. This link opens the Community
+The panel ID is the author slug plus panel slug. This link opens the Community
 library with the search narrowed to that panel, showing its larger panel page.
 
 ## Required Metadata
