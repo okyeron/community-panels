@@ -18,16 +18,23 @@ Use one author directory, then one directory per panel:
 
 ```text
 author_slug/
+  README.md          # optional author bio shown on the author gallery page
   my_panel/
     my_panel.cpp
     README.md        # optional, but recommended
     artwork.png      # optional; artwork.webp is also accepted
 ```
 
-Each author directory can contain one or more panel directories. Each panel
-directory must contain exactly one `.cpp` file directly inside the directory.
-Do not put panel `.cpp` files at the repository root or directly inside an
-author directory, and do not use subdirectories inside a panel submission.
+Each author directory can contain one optional `README.md` and one or more panel
+directories. Each panel directory must contain exactly one `.cpp` file directly
+inside the directory. Do not put panel `.cpp` files at the repository root or
+directly inside an author directory, and do not use subdirectories inside a
+panel submission.
+
+Inside each author directory:
+
+- `README.md`: optional author bio, shown on that author's community gallery
+  page and on community panel covers in the Plinky web IDE.
 
 Inside each panel directory, the only other accepted files are:
 
