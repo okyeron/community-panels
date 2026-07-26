@@ -66,6 +66,7 @@ metadata. Every community panel must include:
 @Documentation: https://example.com/my-panel
 @Category: Sequencers
 @Tags: midi, touch, clock
+@Preferred Panels: blocks, chords
 @Description: A one-sentence summary shown in the library.
 
 Longer plain-text description can go here if you do not use @Description.
@@ -84,6 +85,8 @@ Optional fields:
 - `@Description`: short in-page description.
 - `@Category` or `@Level`: library category.
 - `@Tags`: comma-separated search tags.
+- `@Preferred Panels`: comma-separated Plinky panel names this design works
+  especially well with, such as `blocks`, `chords`, `toadstep`, or `all`.
 - `@Discussion`: an `https://` or `http://` URL for discussion or support.
 
 Do not use `@Artwork` metadata in community panel submissions. If a panel has
