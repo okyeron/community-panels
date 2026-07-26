@@ -2,7 +2,7 @@
 
 This repository collects community-submitted Plinky 12 custom panel designs.
 Panels listed here are shown in the Community section of the Plinky 12 web
-panel library.
+panel library. https://plinky12.com/community.html
 
 Community panels are not official Plinky examples. They are reviewed for basic
 metadata and build compatibility, but they are not officially supported by
@@ -39,20 +39,33 @@ The community panel ID comes from the author and panel directory names:
 letters, numbers, and underscores. Use the `@Name` metadata for display names
 with spaces and punctuation.
 
+Metadata for your panel is included in a block comment in the cpp file. See below for more information.
+
 The optional panel `README.md` is shown in the Plinky web IDE panel cover after
 someone opens the panel from the library. The public library listing uses the
 C++ metadata and artwork, not the README.
 
 ## Permalinks
 
-Use your community panel ID in the Plinky web IDE community library URL:
+Use the consumer-facing community panel page when sharing a panel with Plinky
+users:
+
+```text
+https://plinky12.com/community/author_slug/panel_slug
+```
+
+The panel ID is the author slug plus panel slug, for example
+`mmalex/zone_plate`. This page is intended for people who want to inspect,
+download, or flash a community panel without opening the code editor.
+
+If you want to link directly to the code editor version of a panel, use the
+same community panel ID in the Plinky web IDE community library URL:
 
 ```text
 https://plinky12.com/ide.html?library=community&panel=author_slug/panel_slug
 ```
 
-The panel ID is the author slug plus panel slug. This link opens the Community
-library with the search narrowed to that panel, showing its larger panel page.
+That link opens the panel inside the Custom Panels IDE.
 
 ## Required Metadata
 
@@ -64,8 +77,7 @@ metadata. Every community panel must include:
 @Name: My Panel
 @Author: Your Name
 @Documentation: https://example.com/my-panel
-@Category: Sequencers
-@Tags: midi, touch, clock
+@Tags: sequencer, midi
 @Preferred Panels: blocks, chords
 @Description: A one-sentence summary shown in the library.
 
@@ -83,11 +95,23 @@ Optional fields:
 
 - `@Name`: display name. If omitted, the panel class or filename is used.
 - `@Description`: short in-page description.
-- `@Category` or `@Level`: library category.
-- `@Tags`: comma-separated search tags.
-- `@Preferred Panels`: comma-separated Plinky panel names this design works
-  especially well with, such as `blocks`, `chords`, `toadstep`, or `all`.
+- `@Tags`: comma-separated discovery tags describing what the panel does. Use
+  single words with no spaces. Tags are matched case-insensitively by the
+  website, but lowercase is preferred for readability. Suggested starting tags
+  are `midi`, `effect`, `sequencer`, `groovebox`, and `visuals`.
+- `@Preferred Panels`: comma-separated Plinky panel layouts this design works
+  especially well with. Use `blocks`, `chords`, or `toadstep` when the control
+  layout or visual language fits one of those panels. Use `all` only when the
+  design is broadly suitable for any Plinky 12 panel. If this field is omitted,
+  the website treats the panel as not restricted to a specific panel layout when
+  users filter by `blocks`, `chords`, or `toadstep`. These values are used by
+  the website to show compatibility chips and help users filter the community
+  gallery.
 - `@Discussion`: an `https://` or `http://` URL for discussion or support.
+- `@Category`: optional free-text metadata. It is shown with the panel, but it
+  is not used for library grouping or filtering.
+- `@Level`: intended for built-in examples, not community panels. If present,
+  it must be one of `Simple`, `Intermediate`, or `Advanced`.
 
 Do not use `@Artwork` metadata in community panel submissions. If a panel has
 artwork, include exactly one file named `artwork.png` or `artwork.webp` next to
