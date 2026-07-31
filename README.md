@@ -83,7 +83,6 @@ metadata. Every community panel must include:
 /*
 @Name: My Panel
 @Author: Your Name
-@Documentation: https://example.com/my-panel
 @Tags: sequencer, midi
 @Preferred Panels: blocks, chords
 @Description: A one-sentence summary shown in the library.
@@ -99,13 +98,13 @@ This is useful for keeping longer `@Description` values readable in source.
 Required fields:
 
 - `@Author`: author or maintainer name.
-- `@Documentation`: an `https://` or `http://` URL with usage notes,
-  documentation, or a project page.
 
 Optional fields:
 
 - `@Name`: display name. If omitted, the panel class or filename is used.
 - `@Description`: short in-page description.
+- `@Documentation`: an `https://` or `http://` URL with usage notes,
+  documentation, or a project page.
 - `@Tags`: comma-separated discovery tags describing what the panel does. Use
   single words with no spaces. Tags are matched case-insensitively by the
   website, but lowercase is preferred for readability. Suggested starting tags
