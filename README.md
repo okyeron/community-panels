@@ -87,10 +87,14 @@ metadata. Every community panel must include:
 @Tags: sequencer, midi
 @Preferred Panels: blocks, chords
 @Description: A one-sentence summary shown in the library.
+  Indented lines continue the previous metadata value.
 
 Longer plain-text description can go here if you do not use @Description.
 */
 ```
+
+Indented lines after a metadata field are joined onto that field with spaces.
+This is useful for keeping longer `@Description` values readable in source.
 
 Required fields:
 
