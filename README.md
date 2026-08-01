@@ -105,6 +105,9 @@ Optional fields:
 - `@Description`: short in-page description.
 - `@Documentation`: an `https://` or `http://` URL with usage notes,
   documentation, or a project page.
+- `@Video`: a YouTube URL to embed on the panel detail page. Any metadata field
+  whose value is a YouTube link may be embedded by the website, but `@Video` is
+  the preferred key for a primary demo.
 - `@Tags`: comma-separated discovery tags describing what the panel does. Use
   single words with no spaces. Tags are matched case-insensitively by the
   website, but lowercase is preferred for readability. Suggested starting tags
