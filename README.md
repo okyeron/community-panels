@@ -12,6 +12,12 @@ If you find a problem, please [file an issue](https://github.com/plinkysynth/com
 
 For more information about Plinky 12, go to https://plinky12.com
 
+Some `mmalex/` panels are generated exports of built-in examples from the main
+Plinky 12 repository, so the consumer-facing community gallery can show every
+panel source it serves. Those generated `.cpp` files start with a short marker;
+please update their canonical source in the main repo rather than editing the
+exported copy here.
+
 ## Panel Layout
 
 Use one author directory, then one directory per panel:
