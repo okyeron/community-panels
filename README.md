@@ -89,6 +89,7 @@ metadata. Every community panel must include:
 /*
 @Name: My Panel
 @Author: Your Name
+@Firmware: latest
 @Tags: sequencer, midi
 @Preferred Panels: blocks, chords
 @Description: A one-sentence summary shown in the library.
@@ -104,6 +105,11 @@ This is useful for keeping longer `@Description` values readable in source.
 Required fields:
 
 - `@Author`: author or maintainer name.
+- `@Firmware`: firmware base to build against. Use `latest` if the maintainer
+  should rebuild the panel against the latest published Plinky compiler bundle,
+  or use a four-character firmware build code such as `95d3` to pin the panel to
+  a specific firmware base. Explicit codes must already have a published
+  compiler bundle, or the build will fail.
 
 Optional fields:
 
