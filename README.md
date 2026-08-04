@@ -105,11 +105,12 @@ This is useful for keeping longer `@Description` values readable in source.
 Required fields:
 
 - `@Author`: author or maintainer name.
-- `@Firmware`: firmware base to build against. Use `latest` if the maintainer
-  should rebuild the panel against the latest published Plinky compiler bundle,
-  or use a four-character firmware build code such as `95d3` to pin the panel to
-  a specific firmware base. Explicit codes must already have a published
-  compiler bundle, or the build will fail.
+- `@Firmware`: firmware base to build against. Use `latest` for the current
+  beta firmware, `beta`, `alpha`, or `release` for a specific channel, or a
+  four-character firmware build code such as `c019` to pin the panel to a
+  specific firmware base. The maintainer can only bless artifacts for firmware
+  entries that are listed in Plinky's `versions.json` and whose Git commit is
+  available locally.
 
 Optional fields:
 
