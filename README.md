@@ -12,6 +12,12 @@ If you find a problem, please [file an issue](https://github.com/plinkysynth/com
 
 For more information about Plinky 12, go to https://plinky12.com
 
+Some `mmalex/` panels are generated exports of built-in examples from the main
+Plinky 12 repository, so the consumer-facing community gallery can show every
+panel source it serves. Those generated `.cpp` files start with a short marker;
+please update their canonical source in the main repo rather than editing the
+exported copy here.
+
 ## Panel Layout
 
 Use one author directory, then one directory per panel:
@@ -83,6 +89,7 @@ metadata. Every community panel must include:
 /*
 @Name: My Panel
 @Author: Your Name
+@Firmware: latest
 @Tags: sequencer, midi
 @Preferred Panels: blocks, chords
 @Description: A one-sentence summary shown in the library.
@@ -98,6 +105,12 @@ This is useful for keeping longer `@Description` values readable in source.
 Required fields:
 
 - `@Author`: author or maintainer name.
+- `@Firmware`: firmware base to build against. Use `latest` for the current
+  beta firmware, `beta`, `alpha`, or `release` for a specific channel, or a
+  four-character firmware build code such as `c019` to pin the panel to a
+  specific firmware base. The maintainer can only bless artifacts for firmware
+  entries that are listed in Plinky's `versions.json` and whose Git commit is
+  available locally.
 
 Optional fields:
 
