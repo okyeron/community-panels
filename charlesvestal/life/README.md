@@ -10,6 +10,10 @@ the world into rhythm.
 > **Runs on any faceplate.** The synth page, the pickers and the play surface all move onto the
 > printed pad circles on Chords and Drums, and take the full grid on Blocks and Toadstep.
 
+## Hear it
+
+- [Life on Plinky 12](https://www.youtube.com/watch?v=DeXRKCYJnzk)
+
 ## Start here
 
 1. Press `(15,15)`, the green play pad. A freshly loaded panel seeds itself, so it makes sound
