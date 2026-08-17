@@ -5,10 +5,12 @@
 @Preferred Panels: all
 @Description: An 8-layer 16-step grid sequencer with Score, Random, and Bounce modes, inspired by the Yamaha Tenori-On.
 
-Tenori-On: a 16x15 step sequencer with 8 layers, inspired by the Yamaha Tenori-On.
+A 16x15 step sequencer with 8 layers, inspired by the Yamaha Tenori-On.
 
-Inital inspiration based on js code by Chris Pirillo "Tenori-Online: Interactive Web-Based Music Sequencer"
-https://pirillo.com/arcade/tenori-on.html
+Inspired by:
+Yamaha Tenori-On hardware https://www.yamaha.com/en/tech-design/design/insights/id_005/
+Pika Blue https://www.pika.blue/categories/tenori-on/
+Chris Pirillo's "Tenori-Online" https://pirillo.com/arcade/tenori-on.html
 
 
 Grid layout:
@@ -209,25 +211,32 @@ struct tenori_on : panel_t {
     }
 
     // -----------------------------------------------------------------------
-    // Note mapping: row -> MIDI note number
+    // Note mapping: pentatonic major scale, root C3 (MIDI 48).
     //
-    // Mirrors the web version's pentatonic-major formula:
-    //   scale = [0, 2, 4, 7, 9], base = 48
-    //   n = (ROWS - 1 - row)   where ROWS was 16 in the web version
-    //
-    // Here ROWS for notes is 15 (rows 0-14), so:
-    //   n = 14 - row  (row 14 = n=0 = C3, row 0 = n=14 = A5)
+    // A major pentatonic scale is the standard 5-note major scale with the two
+    // half-step degrees (4th and 7th) omitted, leaving the interval pattern
+    // whole-whole-(minor third)-whole-(minor third) between successive degrees
+    // — 2+2+3+2+3 = 12 semitones per octave. 
     // -----------------------------------------------------------------------
+    static constexpr int PENTATONIC_MAJOR_STEPS[5] = {2, 2, 3, 2, 3};
+
+    // Returns the MIDI note `degree_index` scale degrees above root_note,
+    // wrapping into successive octaves every 5 degrees.
+    static int nth_pentatonic_major_note(int root_note, int degree_index) {
+        int note = root_note + (degree_index / 5) * 12;
+        for (int i = 0, degree = degree_index % 5; i < degree; i++)
+            note += PENTATONIC_MAJOR_STEPS[i];
+        return note;
+    }
+
+    // Score/Random: row 14 (bottom) = C3, ascending one scale degree per row up.
     static int row_to_note(int row) {
-        const int scale[5] = {0, 2, 4, 7, 9};
-        int n = 14 - row;
-        return 48 + (n / 5) * 12 + scale[n % 5];
+        return nth_pentatonic_major_note(48, 14 - row);
     }
 
     // Bounce mode: columns 0-15 map to pitches left=low, right=high (pentatonic, C3-C6).
     static int col_to_note(int col) {
-        const int scale[5] = {0, 2, 4, 7, 9};
-        return 48 + (col / 5) * 12 + scale[col % 5];
+        return nth_pentatonic_major_note(48, col);
     }
 
     // -----------------------------------------------------------------------
