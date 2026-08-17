@@ -1,17 +1,23 @@
 /*
 @Name: TNR-p12
 @Author: okyeron
+@Firmware: latest
 @Tags: sequencer, groovebox, midi
 @Preferred Panels: all
 @Description: An 8-layer 16-step grid sequencer with Score, Random, and Bounce modes, inspired by the Yamaha Tenori-On.
 
-A 16x15 step sequencer with 8 layers, inspired by the Yamaha Tenori-On.
+TNR-p12 is a new C++ grid sequencer written for Plinky 12. It draws inspiration
+from the Yamaha Tenori-On interface and interaction ideas, but does not use Yamaha
+code or firmware and is not affiliated with or endorsed by Yamaha.
 
-Inspired by:
+Development began after reading Chris Pirillo's Tenori-Online JavaScript project.
+TNR-p12 is a separate implementation tailored to Plinky 12's panel API, touch
+surface, synth, and MIDI:
+https://github.com/ChrisPirillo/tenori-on
+
+Additional inspiration and references:
 Yamaha Tenori-On hardware https://www.yamaha.com/en/tech-design/design/insights/id_005/
 Pika Blue https://www.pika.blue/categories/tenori-on/
-Chris Pirillo's "Tenori-Online" https://pirillo.com/arcade/tenori-on.html
-
 
 Grid layout:
   - Rows 0-14, columns 0-15: the 15-pitch x 16-step note grid (240 pads).
@@ -216,7 +222,7 @@ struct tenori_on : panel_t {
     // A major pentatonic scale is the standard 5-note major scale with the two
     // half-step degrees (4th and 7th) omitted, leaving the interval pattern
     // whole-whole-(minor third)-whole-(minor third) between successive degrees
-    // — 2+2+3+2+3 = 12 semitones per octave. 
+    // — 2+2+3+2+3 = 12 semitones per octave.
     // -----------------------------------------------------------------------
     static constexpr int PENTATONIC_MAJOR_STEPS[5] = {2, 2, 3, 2, 3};
 
